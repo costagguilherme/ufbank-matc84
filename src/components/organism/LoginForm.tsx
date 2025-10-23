@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import FormField from "../molecules/FormField";
 import FormCheckbox from "../molecules/FormCheckbox";
-import Button from "../atoms/Button";
+import FormButton from "../molecules/FormButton";
 
 export default function LoginForm() {
   const [Cpf, setCpf] = useState("");
@@ -55,7 +55,7 @@ export default function LoginForm() {
       />
 
       <div className="flex justify-center">
-        <Button
+        <FormButton
           type="submit"
           label="Entrar"
           onClick={() => { alert('fazendo login') }}

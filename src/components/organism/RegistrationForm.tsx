@@ -3,8 +3,8 @@
 import { useState } from "react";
 import FormField from "../molecules/FormField";
 import FormCheckbox from "../molecules/FormCheckbox";
-import Button from "../atoms/Button";
 import formFields from "@/src/app/data/registerFormFields";
+import FormButton from "../molecules/FormButton";
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -56,7 +56,7 @@ export default function RegistrationForm() {
       />
 
       <div className="flex justify-center">
-        <Button
+        <FormButton
           type="submit"
           label="Cadastrar"
           onClick={() => {
