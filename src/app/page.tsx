@@ -6,6 +6,7 @@
 // import FormCheckbox from "../components/molecules/FormCheckbox";
 // import Label from "../components/atoms/Label";
 import RegistrationForm from "../components/organism/RegistrationForm";
+import LoginForm from "../components/organism/LoginForm";
 
 export default function Home() {
 
@@ -29,7 +30,7 @@ export default function Home() {
     // </div>
     
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <RegistrationForm />
+      <LoginForm/>
     </div>
 
   );
