@@ -8,6 +8,9 @@ import Label from "../components/atoms/Label";
 import RegistrationForm from "../components/organism/RegistrationForm";
 
 export default function Home() {
+
+  // Código de alguém abaixo (comentei para deixar apenas o formulário de cadastro na página)
+
   // const [text, setText] = useState("");
   // const [aceite, setAceite] = useState(false);
 

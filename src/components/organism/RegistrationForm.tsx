@@ -4,6 +4,7 @@ import { useState } from "react";
 import FormField from "../molecules/FormField";
 import FormCheckbox from "../molecules/FormCheckbox";
 import Button from "../atoms/Button";
+import formFields from "@/src/app/data/formFIelds";
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -32,39 +33,17 @@ export default function RegistrationForm() {
         Cadastro de Usuário
       </h2>
 
-      <FormField
-        label="Nome completo"
-        placeholder="Digite seu nome"
-        value={formData.nome}
-        onChange={(value) => handleChange("nome", value)}
-        required
-      />
-
-      <FormField
-        label="CPF"
-        placeholder="000.000.000-00"
-        value={formData.cpf}
-        onChange={(value) => handleChange("cpf", value)}
-        required
-      />
-
-      <FormField
-        label="Email"
-        type="email"
-        placeholder="exemplo@email.com"
-        value={formData.email}
-        onChange={(value) => handleChange("email", value)}
-        required
-      />
-
-      <FormField
-        label="Senha"
-        type="password"
-        placeholder="********"
-        value={formData.senha}
-        onChange={(value) => handleChange("senha", value)}
-        required
-      />
+      {formFields.map((field) => (
+        <FormField
+          key={field.key}
+          label={field.label}
+          type={field.type}
+          placeholder={field.placeholder}
+          value={formData[field.key]}
+          required={field.required}
+          onChange={(value) => handleChange(field.key, value)}
+        />
+      ))}
 
       <FormCheckbox
         label="Aceito os termos de uso"
