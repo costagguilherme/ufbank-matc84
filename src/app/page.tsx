@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Button from "../components/atoms/Button";
 import Input from "../components/atoms/Input";
-import Checkbox from "../components/atoms/Checkbox";
+import FormCheckbox from "../components/molecules/FormCheckbox";
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -22,10 +22,12 @@ export default function Home() {
           </div>
         </label>
 
-      <label className="flex items-center gap-2 text-sm text-gray-800">
-          <Checkbox checked={aceite} onChange={setAceite} />
-          Aceito os termos de uso
-        </label>
+      <FormCheckbox
+        label="Aceito os termos de uso"
+        checked={aceite}
+        onChange={setAceite}
+        required
+      />
       
       <Button type="button" label="Clique aqui" onClick={getClick} />
 
