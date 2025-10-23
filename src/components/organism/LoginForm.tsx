@@ -18,15 +18,18 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-4 w-full max-w-sm mx-auto p-8 bg-white rounded-2xl shadow-lg"
+      className="flex flex-col gap-4 bg-white p-8 rounded-2xl shadow-md w-full max-w-md mx-auto"
     >
-      <h2 className="text-2xl font-semibold text-center text-purple-700">
+      <h2 className="text-2xl font-semibold text-center text-purple-700 mb-2">
         Login UFBank
       </h2>
+      <h3 className="text-sm text-center text-gray-500 font-light mt-1">
+        É rápido, fácil e seguro
+      </h3>
 
       {/* Campo de E-mail */}
       <FormField
-        label="Cpf"
+        label="CPF"
         type="cpf"
         placeholder="Digite seu e-mail"
         required
@@ -51,8 +54,25 @@ export default function LoginForm() {
         onChange={setRemember}
       />
 
-      {/* Botão de envio */}
-      <Button type="submit" label="Entrar" />
+      <div className="flex justify-center">
+        <Button
+          type="submit"
+          label="Entrar"
+          onClick={() => { alert('fazendo login') }}
+        />
+      </div>
+
+      <div className="flex flex-col items-center gap-2 mt-4">
+        <span className="text-gray-500 text-sm">
+          Não possui uma conta?{" "}
+          <a
+            href="/login"
+            className="text-purple-600 font-semibold text-base hover:text-purple-700 transition-colors"
+          >
+            Cadastra-se
+          </a>
+        </span>
+      </div>
     </form>
   );
 }

@@ -4,7 +4,7 @@ import { useState } from "react";
 import FormField from "../molecules/FormField";
 import FormCheckbox from "../molecules/FormCheckbox";
 import Button from "../atoms/Button";
-import formFields from "@/src/app/data/formFIelds";
+import formFields from "@/src/app/data/registerFormFields";
 
 export default function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -12,26 +12,30 @@ export default function RegistrationForm() {
     cpf: "",
     email: "",
     senha: "",
-    termos: false,
+    acceptTerms: false,
   });
 
-  const handleChange = (field: string, value: string | boolean) => {
+  function handleChange(field: string, value: string | boolean) {
     setFormData((prev) => ({ ...prev, [field]: value }));
-  };
+  }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     console.log("Dados do cadastro:", formData);
-  };
+  }
 
   return (
     <form
       onSubmit={handleSubmit}
       className="flex flex-col gap-4 bg-white p-8 rounded-2xl shadow-md w-full max-w-md mx-auto"
     >
+
       <h2 className="text-2xl font-semibold text-center text-purple-700 mb-2">
-        Cadastro de Usuário
+        Abra sua conta UFBank
       </h2>
+      <h3 className="text-sm text-center text-gray-500 font-light mt-1">
+        É rápido, fácil e seguro
+      </h3>
 
       {formFields.map((field) => (
         <FormField
@@ -47,11 +51,36 @@ export default function RegistrationForm() {
 
       <FormCheckbox
         label="Aceito os termos de uso"
-        checked={formData.termos}
-        onChange={(value) => handleChange("termos", value)}
+        checked={formData.acceptTerms}
+        onChange={(checked) => setFormData({ ...formData, acceptTerms: checked })}
       />
 
-      <Button type="submit" label="Cadastrar" />
+      <div className="flex justify-center">
+        <Button
+          type="submit"
+          label="Cadastrar"
+          onClick={() => {
+            if (!formData.acceptTerms) {
+              alert("Você precisa aceitar os termos para continuar.");
+              return;
+            }
+            console.log("Dados enviados:", formData);
+            alert("Botão de cadastro clicado!");
+          }}
+        />
+      </div>
+
+      <div className="flex flex-col items-center gap-2 mt-4">
+        <span className="text-gray-500 text-sm">
+          Já possui uma conta?{" "}
+          <a
+            href="/login"
+            className="text-purple-600 font-semibold text-base hover:text-purple-700 transition-colors"
+          >
+            Entrar
+          </a>
+        </span>
+      </div>
     </form>
   );
 }

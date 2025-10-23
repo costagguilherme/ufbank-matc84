@@ -14,7 +14,6 @@ type FormFieldProps = {
   error?: string | null;
   hint?: string | null;
   className?: string;
-  // id?: string;  
 };
 
 export default function FormField({
@@ -23,27 +22,24 @@ export default function FormField({
   onChange,
   placeholder,
   type = "text",
-  required = false,
+  required = true,
   error = null,
   hint = null,
   className,
 }: FormFieldProps) {
 
-    // Permitiria gerar um ID caso nenhum fosse informado
-  // const inputId = id || `input-${crypto.randomUUID()}`;
-
   return (
     <div className={`mb-4 ${className ?? ""}`}>
       <Label 
-        // htmlFor={inputId} // O atomo Input ainda nao usa id, mas isso mostra a intencao do pareamento
         text={label} 
         required={required} 
       />
+      
       <Input 
         value={value} 
         onChange={onChange} 
         placeholder={placeholder} 
-        type={type} 
+        type={type}
       />
       {error ? (
         <p className="text-sm text-red-600 mt-1" role="alert">

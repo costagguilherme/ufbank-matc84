@@ -22,23 +22,15 @@ export default function FormCheckbox({
   id,
   className,
 }: FormCheckboxProps) {
-  // Gera um ID único se não for fornecido
-  const checkboxId = id || `checkbox-${crypto.randomUUID()}`;
 
   return (
     <div className={`flex items-center gap-2 ${className ?? ""}`}>
       <Checkbox
-        id={checkboxId}
         checked={checked}
         onChange={onChange}
         disabled={disabled}
       />
-      <Label
-        htmlFor={checkboxId}
-        text={label}
-        required={required}
-        className={disabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}
-      />
+      <Label text={label} className="text-sm text-gray-700" />
     </div>
   );
 }

@@ -6,7 +6,7 @@ interface InputProps {
   required?: boolean;
 }
 
-export default function Input({ value, onChange, placeholder, type = "text", required = false}: InputProps) {
+export default function Input({ value, onChange, placeholder, type = "text", required = true}: InputProps) {
   return (
     <input
       type={type}
