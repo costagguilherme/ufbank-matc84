@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import Button from "../components/atoms/Button";
-import Input from "../components/atoms/Input";
-import FormCheckbox from "../components/molecules/FormCheckbox";
-import Label from "../components/atoms/Label";
+// import { useState } from "react";
+// import Button from "../components/atoms/Button";
+// import Input from "../components/atoms/Input";
+// import FormCheckbox from "../components/molecules/FormCheckbox";
+// import Label from "../components/atoms/Label";
 import RegistrationForm from "../components/organism/RegistrationForm";
 
 export default function Home() {
