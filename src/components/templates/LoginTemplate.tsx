@@ -1,3 +1,5 @@
+"use client";
+
 import LoginForm from "../organism/LoginForm";
 
 export function LoginTemplate() {
