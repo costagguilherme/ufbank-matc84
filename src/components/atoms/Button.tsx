@@ -1,15 +1,15 @@
 interface ButtonProps {
-  type?: "button" | "submit" | "reset";
+  type?: "submit";
   label: string;
   onClick?: () => void;
 }
 
-export default function Button({ type = "button", label, onClick }: ButtonProps) {
+export default function Button({ type = "submit", label, onClick }: ButtonProps) {
   return (
     <button
       type={type}
       onClick={onClick}
-      className="px-4 py-2 bg-blue-400 text-white rounded hover:bg-blue-500 transition-colors cursor-pointer"
+      className="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-1"
     >
       {label}
     </button>

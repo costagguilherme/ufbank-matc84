@@ -1,10 +1,9 @@
-// components/atoms/Checkbox.tsx
 type CheckboxProps = {
   checked: boolean;
   onChange: (checked: boolean) => void;
-  id?: string;            // opcional: para parear com Label (htmlFor)
-  disabled?: boolean;     // opcional
-  className?: string;     // opcional
+  id?: string;
+  disabled?: boolean;
+  className?: string;
 };
 
 export default function Checkbox({
@@ -21,9 +20,9 @@ export default function Checkbox({
       checked={checked}
       onChange={(e) => onChange(e.target.checked)}
       disabled={disabled}
-      className={`h-4 w-4 rounded border-gray-300 focus:ring-2 focus:ring-blue-400 ${
+      className={`h-5 w-5 rounded border-gray-300 focus:ring-2 focus:ring-purple-400 ${
         disabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer"
-      } accent-blue-600 ${className ?? ""}`}
+      } accent-purple-600 ${className ?? ""}`}
     />
   );
 }
