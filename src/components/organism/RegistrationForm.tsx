@@ -1,12 +1,15 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import FormField from "../molecules/FormField";
 import FormCheckbox from "../molecules/FormCheckbox";
-import formFields from "@/src/app/data/registerFormFields";
+import formFields from "@/src/types/registerFormFields";
 import FormButton from "../molecules/FormButton";
 
 export default function RegistrationForm() {
+
+  const router = useRouter();
   const [formData, setFormData] = useState({
     nome: "",
     cpf: "",
@@ -19,10 +22,29 @@ export default function RegistrationForm() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    console.log("Dados do cadastro:", formData);
+
+    if (!formData.acceptTerms) {
+      alert("Você precisa aceitar os termos para continuar.");
+      return;
+    }
+
+    const res = await fetch("/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      router.push("/login");
+    } else {
+      alert(data.message);
+    }
   }
+
 
   return (
     <form
@@ -65,7 +87,6 @@ export default function RegistrationForm() {
               return;
             }
             console.log("Dados enviados:", formData);
-            alert("Botão de cadastro clicado!");
           }}
         />
       </div>
