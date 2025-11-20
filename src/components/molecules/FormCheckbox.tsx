@@ -1,5 +1,3 @@
-"use client";
-
 import Checkbox from "../atoms/Checkbox";
 import Label from "../atoms/Label";
 

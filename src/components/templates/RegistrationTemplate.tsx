@@ -1,5 +1,3 @@
-"use client";
-
 import RegistrationForm from "../organism/RegistrationForm";
 
 export function RegistrationTemplate() {

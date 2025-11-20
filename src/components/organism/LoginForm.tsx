@@ -1,23 +1,37 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import FormField from "../molecules/FormField";
 import FormCheckbox from "../molecules/FormCheckbox";
 import FormButton from "../molecules/FormButton";
+import { signIn } from "next-auth/react";
 
 export default function LoginForm() {
-  const [Cpf, setCpf] = useState("");
+  const router = useRouter();
+  const [cpf, setCpf] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  async function makeLogin(e: React.FormEvent) {
     e.preventDefault();
-    console.log({ Cpf, password, remember });
-  };
+
+    const res = await signIn("credentials", {
+      cpf,
+      senha: password,
+      redirect: false,
+    });
+
+    if (res?.error) {
+      alert("CPF ou senha inválidos.");
+    } else {
+      router.push('/dashboard');
+    }
+  }
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={makeLogin}
       className="flex flex-col gap-4 bg-white p-8 rounded-2xl shadow-md w-full max-w-md mx-auto"
     >
       <h2 className="text-2xl font-semibold text-center text-purple-700 mb-2">
@@ -33,7 +47,7 @@ export default function LoginForm() {
         type="cpf"
         placeholder="Digite seu e-mail"
         required
-        value={Cpf}
+        value={cpf}
         onChange={setCpf}
       />
 
@@ -58,7 +72,7 @@ export default function LoginForm() {
         <FormButton
           type="submit"
           label="Entrar"
-          onClick={() => { alert('fazendo login') }}
+          onClick={() => { console.log('Login click') }}
         />
       </div>
 
@@ -66,7 +80,7 @@ export default function LoginForm() {
         <span className="text-gray-500 text-sm">
           Não possui uma conta?{" "}
           <a
-            href="/login"
+            href="/register"
             className="text-purple-600 font-semibold text-base hover:text-purple-700 transition-colors"
           >
             Cadastra-se
