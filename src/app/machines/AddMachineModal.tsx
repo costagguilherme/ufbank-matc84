@@ -14,11 +14,11 @@ export default function AddMachineModal() {
             model: e.target.model.value,
         };
 
-        // await fetch("/api/machines", {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(data),
-        // });
+        await fetch("/api/machines", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        });
 
         setOpen(false);
         window.location.reload();
