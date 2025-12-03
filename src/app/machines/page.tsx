@@ -10,7 +10,7 @@ export default async function MachinesPage() {
     return (
         <main className="min-h-screen bg-gray-50 p-8 flex flex-col items-center justify-start">
 
-            {/* <AddMachineModal /> */}
+            <AddMachineModal />
 
             <div className="w-full max-w-3xl mt-12 mx-auto">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
