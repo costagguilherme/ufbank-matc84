@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   };
 
   machinesDB.push(machine);
-
+  
   return Response.json(machine, { status: 200 });
 }
 
@@ -59,4 +59,18 @@ export async function PUT(req: Request) {
   machinesDB[machineId] = updatedPutMachine;
 
   return Response.json(updatedPutMachine, { status: 200 });
+}
+
+export async function DELETE(req: Request) {
+  const body = await req.json();
+
+  const machineId = machinesDB.findIndex((m) => m.id === body.id);
+
+  if (machineId === -1) {
+    return Response.json({ error: "Máquina não encontrada" }, { status: 404 });
+  }
+
+  machinesDB.splice(machineId, 1);
+
+  return Response.json({ message: "Máquina deletada com sucesso" }, { status: 200 });
 }
