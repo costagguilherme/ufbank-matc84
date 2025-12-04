@@ -41,11 +41,11 @@ export default function LoginForm() {
         É rápido, fácil e seguro
       </h3>
 
-      {/* Campo de E-mail */}
+      {/* Campo de CPF */}
       <FormField
         label="CPF"
         type="cpf"
-        placeholder="Digite seu e-mail"
+        placeholder="Digite seu CPF"
         required
         value={cpf}
         onChange={setCpf}
