@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import AddMachineModal from "../organism/AddMachineModal";
+import EditMachineModal from "../organism/EditMachineModal";
 import MachinesList from "../organism/MachinesList";
 
 type Props = {
@@ -6,6 +10,8 @@ type Props = {
 };
 
 export default function MachinesTemplate({ machines }: Props) {
+    const [editing, setEditing] = useState<any | null>(null);
+
     return (
         <main className="min-h-screen bg-gray-50 p-8 flex flex-col items-center justify-start">
             <AddMachineModal />
@@ -15,8 +21,18 @@ export default function MachinesTemplate({ machines }: Props) {
                     Máquinas Cadastradas
                 </h2>
 
-                <MachinesList machines={machines} />
+                <MachinesList
+                    machines={machines}
+                    onEditMachine={(m) => setEditing(m)}
+                />
             </div>
+
+            {editing && (
+                <EditMachineModal
+                    machine={editing}
+                    onClose={() => setEditing(null)}
+                />
+            )}
         </main>
     );
 }

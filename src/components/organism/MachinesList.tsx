@@ -2,9 +2,10 @@ import MachineCard from "../molecules/MachineCard";
 
 type Props = {
     machines: any[];
+    onEditMachine: (machine: any) => void;
 };
 
-export default function MachinesList({ machines }: Props) {
+export default function MachinesList({ machines, onEditMachine }: Props) {
     return (
         <div className="grid gap-4">
             {machines.map((m) => (
@@ -13,6 +14,7 @@ export default function MachinesList({ machines }: Props) {
                     name={m.name}
                     serial={m.serial}
                     model={m.model}
+                    onEdit={() => onEditMachine(m)}
                 />
             ))}
         </div>

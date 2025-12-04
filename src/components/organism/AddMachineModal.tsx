@@ -6,7 +6,7 @@ import MachineForm from "../molecules/MachineForm";
 export default function AddMachineModal() {
     const [open, setOpen] = useState(false);
 
-    const createMachine = async (e: any) => {
+    async function createMachine(e: any) {
         e.preventDefault();
 
         const data = {
@@ -25,7 +25,7 @@ export default function AddMachineModal() {
 
         setOpen(false);
         window.location.reload();
-    };
+    }
 
     return (
         <>
@@ -41,7 +41,7 @@ export default function AddMachineModal() {
                     <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-md">
                         <h2 className="text-xl font-semibold mb-4">Adicionar Máquina</h2>
 
-                        <MachineForm onSubmit={createMachine} />
+                        <MachineForm onSubmit={createMachine} onCancel={() => setOpen(false)}/>
                     </div>
                 </div>
             )}
