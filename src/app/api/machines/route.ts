@@ -18,3 +18,45 @@ export async function POST(req: Request) {
 
   return Response.json(machine, { status: 200 });
 }
+
+export async function PATCH(req: Request) {
+  const body = await req.json();
+
+  const machineId = machinesDB.findIndex((m) => m.id === body.id);
+
+  if (machineId === -1) {
+    return Response.json({ error: "Máquina não encontrada" }, { status: 404 });
+  }
+
+  const updatedPatchMachine = {
+    ...machinesDB[machineId],
+    name: body.name ?? machinesDB[machineId].name,
+    serial: body.serial ?? machinesDB[machineId].serial,
+    model: body.model ?? machinesDB[machineId].model,
+  };
+
+  machinesDB[machineId] = updatedPatchMachine;
+
+  return Response.json(updatedPatchMachine, { status: 200 });
+}
+
+export async function PUT(req: Request) {
+  const body = await req.json();
+
+  const machineId = machinesDB.findIndex((m) => m.id === body.id);
+
+  if (machineId === -1) {
+    return Response.json({ error: "Máquina não encontrada" }, { status: 404 });
+  }
+
+  const updatedPutMachine = {
+    id: body.id,
+    name: body.name,
+    serial: body.serial,
+    model: body.model,
+  };
+
+  machinesDB[machineId] = updatedPutMachine;
+
+  return Response.json(updatedPutMachine, { status: 200 });
+}
