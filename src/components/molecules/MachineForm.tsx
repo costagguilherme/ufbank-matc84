@@ -1,10 +1,13 @@
 "use client";
 
+import Button from "../atoms/Button";
+
 type MachineFormProps = {
     onSubmit: (e: any) => void;
+    onCancel?: () => void;
 };
 
-export default function MachineForm({ onSubmit }: MachineFormProps) {
+export default function MachineForm({ onSubmit, onCancel }: MachineFormProps) {
     return (
         <form onSubmit={onSubmit} className="space-y-4">
             <input
@@ -29,19 +32,16 @@ export default function MachineForm({ onSubmit }: MachineFormProps) {
             />
 
             <div className="flex justify-end gap-3 mt-4">
-                <button
-                    type="button"
-                    className="px-4 py-2 border rounded-xl"
-                >
-                    Cancelar
-                </button>
+                <Button 
+                    type="button" 
+                    label="Cancelar" 
+                    onClick={onCancel} 
+                />
 
-                <button
-                    type="submit"
-                    className="px-4 py-2 bg-purple-600 text-white rounded-xl"
-                >
-                    Salvar
-                </button>
+                <Button 
+                    type="submit" 
+                    label="Salvar" 
+                />
             </div>
         </form>
     );

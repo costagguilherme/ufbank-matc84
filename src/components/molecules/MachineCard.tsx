@@ -1,10 +1,13 @@
+import CardButton from "../atoms/CardButton";
+
 type CardProps = {
     name: string;
     serial: string;
     model: string;
+    onEdit?: () => void;
 };
 
-export default function MachineCard({ name, serial, model }: CardProps) {
+export default function MachineCard({ name, serial, model, onEdit }: CardProps) {
     return (
         <div className="rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all p-5 flex items-center justify-between">
             <div>
@@ -16,9 +19,7 @@ export default function MachineCard({ name, serial, model }: CardProps) {
                 </p>
             </div>
 
-            <button className="text-purple-600 hover:text-purple-800 font-medium text-sm transition">
-                ✎ Editar
-            </button>
+            <CardButton label="✎ Editar" onClick={onEdit} />
         </div>
     );
 }
