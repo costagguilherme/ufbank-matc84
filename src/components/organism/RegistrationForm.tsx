@@ -77,17 +77,15 @@ export default function RegistrationForm() {
         onChange={(checked) => setFormData({ ...formData, acceptTerms: checked })}
       />
 
-      <div className="flex justify-center">
+      <div className="flex justify-center gap-4">
+        <FormButton
+            type="button"
+            label="Voltar"
+            onClick={() => router.push("/")}
+        />
         <FormButton
           type="submit"
           label="Cadastrar"
-          onClick={() => {
-            if (!formData.acceptTerms) {
-              alert("Você precisa aceitar os termos para continuar.");
-              return;
-            }
-            console.log("Dados enviados:", formData);
-          }}
         />
       </div>
 
