@@ -1,11 +1,43 @@
+"use client";
+
 import MachinesTemplate from "src/components/templates/MachinesTemplate";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default async function MachinesPage() {
-  const machines = await fetch("http://localhost:3000/api/machines", {
-    method: "GET",
-    cache: "no-store",
-  }).then((res) => res.json());
+export default function MachinesPage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const [machines, setMachines] = useState([]);
+
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/login");
+    }
+  }, [status, router]);
+
+  useEffect(() => {
+    if (status !== "authenticated") return;
+
+    async function fetchMachines() {
+      const res = await fetch("/api/machines");
+      const data = await res.json();
+      setMachines(data);
+    }
+
+    fetchMachines();
+  }, [status]);
+
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen flex items-center justify-center text-xl">
+        Carregando...
+      </div>
+    );
+  }
+
+  if (!session) return null;
 
   return (
     <div className="relative">

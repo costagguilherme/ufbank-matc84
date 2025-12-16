@@ -57,7 +57,7 @@ export default function MachineForm({ onSubmit, onCancel, machine }: MachineForm
                     defaultValue={machine?.valor}
                     max={20000}
                     min={0}
-                    step={100}
+                    step={1}
                     placeholder="Valor"
                     className="mt-1 block w-full border p-2 rounded-lg"
                 />
