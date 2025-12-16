@@ -8,11 +8,11 @@ export default async function MachinesPage() {
     }).then((res) => res.json());
 
     return (
-        <>
+        <div className="text-center">
             <MachinesTemplate machines={machines} />
-            <Link href="/dashboard" className="inline-block mt-8 text-purple-600 hover:underline text-sm text-center w-full">
-                Voltar ao Dashboard
+            <Link href="/dashboard" aria-label="Voltar ao Dashboard" className="inline-block mt-8 p-3 bg-purple-600 text-white font-bold rounded-full shadow-md hover:bg-purple-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-1">
+                <span className="text-2xl">←</span>
             </Link>
-        </>
+        </div>
     );
 }

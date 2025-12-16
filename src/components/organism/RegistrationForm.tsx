@@ -81,13 +81,6 @@ export default function RegistrationForm() {
         <FormButton
           type="submit"
           label="Cadastrar"
-          onClick={() => {
-            if (!formData.acceptTerms) {
-              alert("Você precisa aceitar os termos para continuar.");
-              return;
-            }
-            console.log("Dados enviados:", formData);
-          }}
         />
       </div>
 
