@@ -14,7 +14,7 @@ export default function MachineCard({ name, serial, model, valor, onEdit, onDele
 
     return (
         <div className="rounded-2xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all p-5 flex items-center justify-between">
-            <div>
+            <div className="text-left">
                 <p className="font-semibold text-gray-900 text-lg">
                     {name}
                 </p>

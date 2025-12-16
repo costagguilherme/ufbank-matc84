@@ -12,7 +12,7 @@ export default function MachineForm({ onSubmit, onCancel, machine }: MachineForm
     return (
         <form onSubmit={onSubmit} className="space-y-4">
             <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nome da máquina</label>
+                <label htmlFor="name" className="block text-left text-sm font-medium text-gray-700">Nome da máquina</label>
                 <input
                     id="name"
                     name="name"
@@ -24,7 +24,7 @@ export default function MachineForm({ onSubmit, onCancel, machine }: MachineForm
             </div>
 
             <div>
-                <label htmlFor="serial" className="block text-sm font-medium text-gray-700">Número de série</label>
+                <label htmlFor="serial" className="block text-left text-sm font-medium text-gray-700">Número de série</label>
                 <input
                     id="serial"
                     name="serial"
@@ -36,7 +36,7 @@ export default function MachineForm({ onSubmit, onCancel, machine }: MachineForm
             </div>
 
             <div>
-                <label htmlFor="model" className="block text-sm font-medium text-gray-700">Modelo</label>
+                <label htmlFor="model" className="block text-left text-sm font-medium text-gray-700">Modelo</label>
                 <input
                     id="model"
                     name="model"
@@ -48,7 +48,7 @@ export default function MachineForm({ onSubmit, onCancel, machine }: MachineForm
             </div>
 
             <div>
-                <label htmlFor="valor" className="block text-sm font-medium text-gray-700">Valor</label>
+                <label htmlFor="valor" className="block text-left text-sm font-medium text-gray-700">Valor</label>
                 <input
                     id="valor"
                     name="valor"
