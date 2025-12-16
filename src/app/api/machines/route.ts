@@ -12,6 +12,7 @@ export async function POST(req: Request) {
     name: body.name,
     serial: body.serial,
     model: body.model,
+    valor: body.valor,
   };
 
   machinesDB.push(machine);
@@ -33,6 +34,7 @@ export async function PATCH(req: Request) {
     name: body.name ?? machinesDB[machineId].name,
     serial: body.serial ?? machinesDB[machineId].serial,
     model: body.model ?? machinesDB[machineId].model,
+    valor: body.valor ?? machinesDB[machineId].valor,
   };
 
   machinesDB[machineId] = updatedPatchMachine;
@@ -54,6 +56,7 @@ export async function PUT(req: Request) {
     name: body.name,
     serial: body.serial,
     model: body.model,
+    valor: body.valor,
   };
 
   machinesDB[machineId] = updatedPutMachine;
