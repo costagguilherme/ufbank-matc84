@@ -14,6 +14,7 @@ export default function MachinesList({ machines, onEditMachine }: Props) {
                     name={m.name}
                     serial={m.serial}
                     model={m.model}
+                    valor={m.valor}
                     onEdit={() => onEditMachine(m)}
                 />
             ))}
