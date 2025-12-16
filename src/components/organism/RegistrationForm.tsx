@@ -77,12 +77,7 @@ export default function RegistrationForm() {
         onChange={(checked) => setFormData({ ...formData, acceptTerms: checked })}
       />
 
-      <div className="flex justify-center gap-4">
-        <FormButton
-            type="button"
-            label="Voltar"
-            onClick={() => router.push("/")}
-        />
+      <div className="flex justify-center">
         <FormButton
           type="submit"
           label="Cadastrar"

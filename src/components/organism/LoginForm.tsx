@@ -68,15 +68,11 @@ export default function LoginForm() {
         onChange={setRemember}
       />
 
-      <div className="flex justify-center gap-4">
-        <FormButton
-            type="button"
-            label="Voltar"
-            onClick={() => router.push("/")}
-        />
+      <div className="flex justify-center">
         <FormButton
           type="submit"
           label="Entrar"
+          onClick={() => { console.log('Login click') }}
         />
       </div>
 
