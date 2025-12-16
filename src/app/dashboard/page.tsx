@@ -10,7 +10,7 @@ export default function Dashboard() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [machines, setMachines] = useState([]);
-
+  
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/login");
@@ -43,6 +43,7 @@ export default function Dashboard() {
         <KeyMetrics machines={machines} />
         <div className="mt-8 text-center">
             <Link href="/machines" className="px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-1 text-lg">
+              <span className="text-xl">💳</span>
                 Gestão de Máquinas de Pagamento
             </Link>
         </div>

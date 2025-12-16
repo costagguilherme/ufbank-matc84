@@ -13,6 +13,7 @@ export default function AddMachineModal() {
             name: e.target.name.value,
             serial: e.target.serial.value,
             model: e.target.model.value,
+            valor: e.target.valor.value,
         };
 
         await fetch("/api/machines", {

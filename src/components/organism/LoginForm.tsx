@@ -61,13 +61,6 @@ export default function LoginForm() {
         onChange={setPassword}
       />
 
-      {/* Checkbox de lembrar login */}
-      <FormCheckbox
-        label="Lembrar-me neste dispositivo"
-        checked={remember}
-        onChange={setRemember}
-      />
-
       <div className="flex justify-center">
         <FormButton
           type="submit"
