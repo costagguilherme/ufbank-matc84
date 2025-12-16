@@ -19,6 +19,7 @@ export default function EditMachineModal({ machine, onClose }: EditMachineModalP
             name: e.target.name.value,
             serial: e.target.serial.value,
             model: e.target.model.value,
+            valor: e.target.valor.value,
         };
 
         await fetch('/api/machines', {
@@ -36,7 +37,7 @@ export default function EditMachineModal({ machine, onClose }: EditMachineModalP
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full max-w-md">
                 <h2 className="text-xl font-semibold mb-4">Editar Máquina</h2>
 
-                <MachineForm onSubmit={updateMachine} onCancel={onClose} />
+                <MachineForm machine={machine} onSubmit={updateMachine} onCancel={onClose} />
             </div>
         </div>
     );
