@@ -3,9 +3,10 @@ import MachineCard from "../molecules/MachineCard";
 type Props = {
     machines: any[];
     onEditMachine: (machine: any) => void;
+    onDeleteMachine: (machine: any) => void;
 };
 
-export default function MachinesList({ machines, onEditMachine }: Props) {
+export default function MachinesList({ machines, onEditMachine, onDeleteMachine }: Props) {
     return (
         <div className="grid gap-4">
             {machines.map((m) => (
@@ -16,6 +17,7 @@ export default function MachinesList({ machines, onEditMachine }: Props) {
                     model={m.model}
                     valor={m.valor}
                     onEdit={() => onEditMachine(m)}
+                    onDelete={() => onDeleteMachine(m)}
                 />
             ))}
         </div>

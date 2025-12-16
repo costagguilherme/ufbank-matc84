@@ -6,9 +6,10 @@ type CardProps = {
     model: string;
     valor: number;
     onEdit?: () => void;
+    onDelete?: () => void;
 };
 
-export default function MachineCard({ name, serial, model, valor, onEdit }: CardProps) {
+export default function MachineCard({ name, serial, model, valor, onEdit, onDelete }: CardProps) {
     const formattedValor = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor);
 
     return (
@@ -22,7 +23,10 @@ export default function MachineCard({ name, serial, model, valor, onEdit }: Card
                 </p>
             </div>
 
-            <CardButton label="✎ Editar" onClick={onEdit} />
+            <div className="flex gap-2">
+                <CardButton label="✎ Editar" onClick={onEdit} />
+                <CardButton label="🗑️ Excluir" onClick={onDelete} />
+            </div>
         </div>
     );
 }
