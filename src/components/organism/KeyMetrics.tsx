@@ -7,7 +7,7 @@ type KeyMetricsProps = {
 export default function KeyMetrics({ machines }: KeyMetricsProps) {
     const totalMachines = machines.length;
 
-    const totalAssetValue = machines.reduce((acc, machine) => acc + machine.valor, 0);
+    let totalAssetValue = machines.reduce((acc, machine) => acc + machine.valor, 0);
 
     const averageMachineValue = totalMachines > 0 ? totalAssetValue / totalMachines : 0;
 
